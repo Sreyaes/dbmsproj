@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Tracking</title>
+</head>
+<body>
+    <h1>Track Fund Allocation</h1>
+    {% if message %}
+        <p style="color:green;">{{ message }}</p>
+    {% endif %}
+    <form action="/tracking" method="POST">
+        <label for="fund_id">Fund ID:</label>
+        <input type="number" id="fund_id" name="fund_id" required>
+        <br>
+        <label for="user_id">User ID:</label>
+        <input type="number" id="user_id" name="user_id" required>
+        <br>
+        <label for="allocation_date">Allocation Date:</label>
+        <input type="date" id="allocation_date" name="allocation_date" required>
+        <br>
+        <label for="amount_allocated">Amount Allocated:</label>
+        <input type="number" step="0.01" id="amount_allocated" name="amount_allocated" required>
+        <br>
+        <label for="usage_details">Usage Details:</label>
+        <select id="usage_details" name="usage_details">
+            <option value="Food supply">Food Supply</option>
+            <option value="Basic infrastructure">Basic Infrastructure</option>
+            <option value="Victim Rehabilitation">Victim Rehabilitation</option>
+        </select>
+        <br>
+        <button type="submit">Track Fund</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+</head>
+<body>
+    <h1>Create Emergency Notification</h1>
+    {% if message %}
+        <p style="color:green;">{{ message }}</p>
+    {% endif %}
+    <form action="/notification" method="POST">
+        <label for="incident_id">Incident ID:</label>
+        <input type="number" id="incident_id" name="incident_id" required>
+        <br>
+        <label for="alert_message">Alert Message:</label>
+        <textarea id="alert_message" name="alert_message" required></textarea>
+        <br>
+        <label for="alert_date">Alert Date:</label>
+        <input type="datetime-local" id="alert_date" name="alert_date" required>
+        <br>
+        <button type="submit">Create Notification</button>
+    </form>
+</body>
+</html>
